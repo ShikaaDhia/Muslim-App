@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root{
+    --bg--color: #C1D8C3    ;
+    --bg--color2: #6A9C89;
+    --text--color: #000;
+    --text--color2: #005B41;
+    --bg--color3: #ff6d6d;
+    --font--style: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--bg--color);
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 90%;
+    padding: 1.5rem 5%;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+}
+
+.logo{
+    margin-left: 2rem;
+    color: var(--bg--color2);
+    font-style: var(--font--style);
+    font-size: 20px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.navbar{
+    font-size: 1rem ;
+    margin-right: 2rem;
+    font-weight: 700;
+}
+
+.navbar a{
+    margin-left: 2rem;
+    color: var(--text--color);
+    font-style: var(--font--style);
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.navbar a:hover{
+    color: var(--bg--color2);
+}
+
+.container {
+    margin-top: 20px;
+}
+
+
+.jadwal-sholat{
+    margin-right: 55px;
+    margin-left: 55px;
+}
+
+.card-header {
+    background-color: var(--bg--color);
+    color: var(--text--color);
+    text-align: center;
+    padding: 10px;
+}
+
+.table-primary th {
+    background-color: var(--bg--color2);
+    color: var(--text--color);
+}
+
+.card {
+    border: 1px solid var(--bg--color2);
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0, 0.1);
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td{
+    text-align: center;
+    padding: 8px;
+}
+
+.table-primary td {
+    font-weight: bold;
+    color: var(--text--color);
+}
+
+tr:nth-child(even){
+    background: #D0E7D2;
+}
+
+@media (max-width: 1200px) {
+    .navbar {
+       margin-right: 2rem;
+    }
+}
+
+@media (max-width: 911px) {
+    .navbar a {
+        font-size: 13px;
+    }
+    .logo {
+        font-size: 16px;
+    }
+}

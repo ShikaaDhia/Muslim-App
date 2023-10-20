@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BESTMoss</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <p class="logo">BESTMoss <i class='bx bx-happy-heart-eyes'></i></p>
+         <nav class="navbar">
+            <a href="index.html">Home</a>
+             <a href="jadwal-sholat.html">Jadwal Sholat</a>
+             <a href="asmaul-husna.html">Asmaul Husna</a>
+             <a href="list-surah.html"> List Surat</a>
+         </nav>    
+     </header>
+ 
+
+    <h2 class="warna1">LIST SURAT</h2>
+    <div id="result"></div>
+
+
+    <script>
+        window.onload = function() {
+            getData();
+        }
+
+        function getData() {
+            fetch('https://api.banghasan.com/quran/format/json/surat')
+            .then(function(response) {
+                if(!response.ok) {
+                    throw new Error('Gagal mengambil data');
+                }
+                return response.json();
+            })
+            .then(function(data) {
+                displayData(data);
+            })
+            .catch(function(error) {
+                console.log("terjadi kesalahan", error);
+            })
+        }
+
+        function displayData(data) {
+            var resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '';
+
+            data.hasil.forEach(function (surat) {
+                var suratDiv = document.createElement('div');
+                suratDiv.classList.add('surah')
+                suratDiv.className = 'container1'
+
+                var asmaSurah = document.createElement('h3');
+                asmaSurah.textContent = surat.asma;
+                asmaSurah.className = 'asma1'
+
+                var namaSurah = document.createElement('h2');
+                namaSurah.textContent = surat.nama;
+
+                var artiSurah = document.createElement('h5');
+                artiSurah.textContent = surat.arti;
+
+                var ayatSurah = document.createElement('p');
+                ayatSurah.textContent = "Jumlah Ayat: " + surat.ayat;
+
+                suratDiv.appendChild(asmaSurah);
+                suratDiv.appendChild(namaSurah);
+                suratDiv.appendChild(artiSurah);
+                suratDiv.appendChild(ayatSurah);
+
+                resultDiv.appendChild(suratDiv)
+            })
+        }
+
+    </script>
+    
+</body>
+</html>
